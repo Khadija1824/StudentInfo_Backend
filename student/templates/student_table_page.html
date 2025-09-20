@@ -23,12 +23,20 @@ tr:nth-child(even) {
 <body>
 
 <h2>HTML Table</h2>
+<form action="{% url 'student_list' %}">
+    <input type="text" name="studentname" placeholder="write student name">
+    <input type="text" name="fathername" placeholder="write father name">
+   <button type="submit" value="submit" >Search</button>
+</form>
+</form>
 
 <table>
   <tr>
     <th>Company</th>
     <th>Contact</th>
     <th>Country</th>
+    <th>FatherName</th>
+    <th>MotherName</th>
   </tr>
   {% for student in student_list %}
   <tr>
@@ -38,10 +46,19 @@ tr:nth-child(even) {
     <td>
         {{student.email}}
     </td>
-    <td>{{student.country}}</td>
+    <td>
+        {{student.country}}
+    </td>
+    <td>
+        {{student.fathername}}
+    </td>
+    <td>
+        {{student.mothername}}
+    </td>
   </tr>
   {% endfor %}
 </table>
+
 
 </body>
 </html>
